@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "nestjs-microservice-monorepo-boilerplate",
+  "npmScope": "app",
   "affected": {
     "defaultBase": "master"
   },
