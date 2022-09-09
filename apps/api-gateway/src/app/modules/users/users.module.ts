@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { UsersV1Controller } from './v1/users.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { usersMSConfig } from '@app/microservices';
+import { usersMSConfig } from '@dev.edmardiaz/microservices';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { IApplicationConfig, IRabbitMQConfig } from '@app/common';
 @Module({

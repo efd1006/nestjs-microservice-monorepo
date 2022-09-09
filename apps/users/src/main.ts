@@ -9,7 +9,7 @@ import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { IApplicationConfig, IRabbitMQConfig } from '@app/common';
 import { useContainer } from 'class-validator';
 
-import { usersMSConfig } from '@app/microservices';
+import { usersMSConfig } from '@dev.edmardiaz/microservices';
 import { UsersModule } from './app/users.module';
 
 async function bootstrap() {

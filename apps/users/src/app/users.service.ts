@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern, EventPattern } from '@nestjs/microservices';
-import { usersMSConfig } from '@app/microservices';
+import { usersMSConfig } from '@dev.edmardiaz/microservices';
 @Controller()
 export class UsersService {
   @MessagePattern(usersMSConfig.messagePatterns.ping)
