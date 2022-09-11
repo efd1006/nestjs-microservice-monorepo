@@ -5,6 +5,7 @@ import {
   CreateUserRequestDto,
   CreateUserResponseDto,
   DeleteUserResponseDto,
+  FindAllUsersRequestDto,
   FindAllUsersResponseDto,
   FindOneUserResponseDto,
   IUserStore,
@@ -47,10 +48,16 @@ export class UsersService {
 
   @MessagePattern(usersMSConfig.messagePatterns.findAll)
   async findAll(
-    @Payload() req: PaginatedRequestDto
+    @Payload() req: FindAllUsersRequestDto
   ): Promise<FindAllUsersResponseDto> {
+    // prepare filters if theres any
+    req.filters = {
+      ...(req.email && { email: req.email }),
+      ...(req.name && { name: req.name }),
+    };
+
     const [users, count] = await this.userStore.findAll(
-      {},
+      req.filters,
       req.limit,
       req.page
     );

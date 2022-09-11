@@ -1,6 +1,6 @@
-import { DEFAULT_PAGINATION_LIMIT } from '@app/common';
+import { DEFAULT_PAGINATION_LIMIT, QueryFilter } from '@app/common';
 import { Inject, Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { ILike, Repository } from 'typeorm';
 import { UserEntity } from './entity/user.entity';
 import { IUserStore } from './interfaces/user.store.interface';
 import { User } from './models/user.model';
@@ -24,13 +24,21 @@ export class UserStore implements IUserStore<User> {
   ) {}
 
   async findAll(
-    filters: any,
+    filters: Partial<QueryFilter<User>>,
     limit: number,
     page: number
   ): Promise<[User[], number]> {
+    // override object property if we need to use TypeOrm FindOperator
+    filters = {
+      ...filters,
+      ...(filters.email && { email: ILike(`%${filters.email}%`) }),
+      ...(filters.name && { name: ILike(`%${filters.name}%`) }),
+    };
+
     const [res, count] = await this.userRepository.findAndCount({
       skip: page * (limit || DEFAULT_PAGINATION_LIMIT),
       take: limit,
+      where: filters,
     });
 
     const serializer = new UserSerializer();

@@ -1,11 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNumber, IsOptional, Max } from 'class-validator';
+import { QueryFilter } from '../types';
 
 export const DEFAULT_PAGINATION_LIMIT = 10;
 export const MAX_PAGINATION_LIMIT = 20;
 
-export class PaginatedRequestDto {
-  filters?: Record<string, any>;
+export class PaginatedRequestDto<T = {}> {
+  filters?: QueryFilter<T>;
 
   @ApiProperty({ required: false, default: 1, description: 'Current page' })
   @IsOptional()
