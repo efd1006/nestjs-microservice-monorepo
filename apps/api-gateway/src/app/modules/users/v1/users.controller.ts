@@ -78,7 +78,7 @@ export class UsersV1Controller {
   @ApiOperation({ summary: 'Get user by id' })
   @ApiResponse({ type: FindOneUserResponseDto })
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<FindOneUserResponseDto> {
+  async findById(@Param('id') id: string): Promise<FindOneUserResponseDto> {
     return await firstValueFrom(
       this.usersMicroservice.send(usersMSConfig.messagePatterns.findOne, id)
     );
