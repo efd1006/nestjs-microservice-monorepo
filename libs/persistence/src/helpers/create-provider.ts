@@ -1,7 +1,7 @@
 import { DataSource, EntityTarget } from 'typeorm';
 import { DATA_SOURCE } from '../lib/typeorm.provider';
 
-export function createProvider<T, U>(
+export function createProvider<T>(
   repositoryToken: string,
   entity: EntityTarget<T>
 ) {
