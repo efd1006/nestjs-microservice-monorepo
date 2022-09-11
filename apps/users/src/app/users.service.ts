@@ -38,8 +38,8 @@ export class UsersService {
   }
 
   @MessagePattern(usersMSConfig.messagePatterns.findOne)
-  async findOne(@Payload() req: string): Promise<FindOneUserResponseDto> {
-    const user = await this.userStore.findOne(req);
+  async findById(@Payload() req: string): Promise<FindOneUserResponseDto> {
+    const user = await this.userStore.findById(req);
     return {
       status: true,
       data: user,

@@ -48,7 +48,7 @@ export class UserStore implements IUserStore<User> {
     return [users, count];
   }
 
-  async findOne(id: string): Promise<User> {
+  async findById(id: string): Promise<User> {
     const res = await this.userRepository.findOneOrFail({ where: { id } });
 
     const serializer = new UserSerializer();
