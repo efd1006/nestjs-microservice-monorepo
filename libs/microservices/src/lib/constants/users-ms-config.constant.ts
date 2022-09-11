@@ -10,6 +10,11 @@ export const usersMSConfig: IMicroserviceWithFullConfig<
   queue: 'USERS_MICROSERVICE_QUEUE',
   messagePatterns: {
     ping: 'USERS:ping',
+    findOne: 'USERS:findOne',
+    findAll: 'USERS:findAll',
+    create: 'USERS:create',
+    update: 'USERS:update',
+    delete: 'USERS:delete',
   },
   eventPatterns: {
     pong: 'USERS:pong',
