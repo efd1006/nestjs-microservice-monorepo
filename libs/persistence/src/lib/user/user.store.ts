@@ -24,7 +24,7 @@ export class UserStore implements IUserStore<User> {
   ) {}
 
   async findAll(
-    filters: Partial<QueryFilter<User>>,
+    filters: QueryFilter<Partial<User>>,
     limit: number,
     page: number
   ): Promise<[User[], number]> {
