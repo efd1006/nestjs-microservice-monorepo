@@ -5,6 +5,7 @@
     "api-gateway": "apps/api-gateway",
     "common": "libs/common",
     "microservices": "libs/microservices",
+    "persistence": "libs/persistence",
     "users": "apps/users"
   }
 }

@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@app/common": ["libs/common/src/index.ts"],
-      "@app/microservices": ["libs/microservices/src/index.ts"]
+      "@app/microservices": ["libs/microservices/src/index.ts"],
+      "@app/persistence": ["libs/persistence/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
